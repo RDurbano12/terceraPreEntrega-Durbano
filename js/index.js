@@ -2,6 +2,8 @@ let carrito = []
 
 const contenedorCards = document.querySelector(".container")
 
+// subida de informacion al html desde js
+
 const tarjeta = ( array ) => {
     const arrayAcortado = array.reduce( (acc, elemento ) => {
         return acc + `
@@ -28,6 +30,8 @@ const tarjeta = ( array ) => {
 
 contenedorCards.innerHTML = tarjeta(terapias)
 
+// subir informacion al local storage
+
 const alLs = ( clave, valor ) => {
     return localStorage.setItem(clave, JSON.stringify(valor))
 }
@@ -36,15 +40,21 @@ const pushearAArray = ( array, value ) => {
     array.push(value)
 }
 
+//busqueda de terapia
+
 const buscarProducto = ( producto, array) => {
     return array.find( product => {
         return product.id === Number(producto)
     })
 }
 
+// obtener info del local storage
+
 const obtenerDelLs = ( clave ) => {
     return JSON.parse(localStorage.getItem(clave))
 }
+
+// colocar las diferentes terapias en el carrito de compra
 
 const subirAlCarrito = () => {
     const botonesCards = document.querySelectorAll(".boton-carrito")   
